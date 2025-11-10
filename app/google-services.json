@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "103508829677",
+    "project_id": "faiyazzchatapp",
+    "storage_bucket": "faiyazzchatapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103508829677:android:1a60ca062838552730b3e4",
+        "android_client_info": {
+          "package_name": "com.faiyaz.faiyazzchatapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHzYosUZVd__tJ8TpVcVC5zNgUic962Ds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
