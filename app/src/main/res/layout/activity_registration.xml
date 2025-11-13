@@ -12,7 +12,7 @@
     tools:context=".Registration">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/logoImage"
+        android:id="@+id/userImg"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:elevation="6dp"
@@ -35,7 +35,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:fontFamily="sans-serif-medium"
-        app:layout_constraintTop_toBottomOf="@id/logoImage"
+        app:layout_constraintTop_toBottomOf="@id/userImg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

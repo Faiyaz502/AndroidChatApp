@@ -9,6 +9,15 @@ public class Users {
 
     }
 
+    public Users(String userId, String username, String password, String email, String profileImg, String status) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.profileImg = profileImg;
+        this.status = status;
+    }
+
     public String getProfileImg() {
         return profileImg;
     }

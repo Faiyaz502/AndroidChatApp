@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FaiyazzChatApp">
         <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity
+            android:name=".ChatWindow"
+            android:exported="false" />
+        <activity
             android:name=".Registration"
             android:exported="false" />
         <activity

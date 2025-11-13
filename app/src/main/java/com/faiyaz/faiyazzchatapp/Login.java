@@ -1,6 +1,7 @@
 package com.faiyaz.faiyazzchatapp;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -33,6 +34,10 @@ public class Login extends AppCompatActivity {
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
 
+    ProgressDialog progressDialog ;
+
+
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -48,6 +53,20 @@ public class Login extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        if (auth.getCurrentUser() != null) {
+            // User already logged in — go straight to MainActivity
+            Intent intent = new Intent(Login.this, MainActivity.class);
+            startActivity(intent);
+            finish(); // close Login screen
+            return; // stop running further code
+        }
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please Wait a While......");
+        progressDialog.setCancelable(false);
+
+
+
 
         loginbtn = findViewById(R.id.loginBtn);
         email = findViewById(R.id.loginEmailInput);
@@ -62,17 +81,21 @@ public class Login extends AppCompatActivity {
 
 
             if(TextUtils.isEmpty(Email)){
+                progressDialog.dismiss();
 
                 Toast.makeText(Login.this,"ENTER THE EMAIL",Toast.LENGTH_LONG).show();
 
             }else if(TextUtils.isEmpty(Pass)){
+                progressDialog.dismiss();
 
                 Toast.makeText(Login.this,"ENTER THE PASSWORD",Toast.LENGTH_LONG).show();
             } else if (!Email.matches(emailPattern)) {
+                progressDialog.dismiss();
 
                 Toast.makeText(Login.this,"INVALID EMAIL ADDRESS",Toast.LENGTH_LONG).show();
 
             } else if (password.length() < 6) {
+                progressDialog.dismiss();
                 password.setError("Input 6 Character");
                 Toast.makeText(Login.this,"PASSWORD MORE THAN 6 CHARACTER",Toast.LENGTH_LONG).show();
             }else{
@@ -83,6 +106,7 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if(task.isSuccessful()){
+                            progressDialog.show();
 
                             try {
                                 Intent intent = new Intent(Login.this, MainActivity.class);
